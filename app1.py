@@ -267,7 +267,7 @@ predict_button = st.button(
 if predict_button:
 
     prediction = model.predict(input_data)[0]
-
+    estimated_price = prediction * 100000
 
     # --------------------------------------------------------
     # RESULT
@@ -278,7 +278,7 @@ if predict_button:
     st.markdown(
         '<div class="result-box">'
         '<h2>🏠 Estimated House Value</h2>'
-        f'<h1>${prediction:.2f}</h1>'
+        f'<h1>${estimated_price:,.0f}</h1>'
         '<p>Predicted median house value</p>'
         '</div>',
         unsafe_allow_html=True
@@ -297,7 +297,7 @@ if predict_button:
 
         st.metric(
             "Predicted Value",
-            f"${prediction:.2f}"
+            f"${estimated_price:,.0f}"
         )
 
     with metric2:
