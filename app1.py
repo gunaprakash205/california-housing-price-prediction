@@ -397,6 +397,8 @@ if predict_button:
 
             # Model prediction is in units of $100,000
             prediction = model.predict(input_data)[0]
+            st.write("### 🔎 Debug Input")
+            st.dataframe(input_data)
 
             # Convert to actual dollars
             estimated_price = prediction * 100000
